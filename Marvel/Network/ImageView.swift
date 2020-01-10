@@ -31,6 +31,8 @@ class ImageView: UIImageView {
     
     // MARK: - Public Methods
     
+    // если имеется изображение в кэше - извлекаем и присваиваем его в ячейку
+    // если изображения в кэше нет - отправляем запрос по имеющемуся URL
     func fetchImage(with url: String?) {
         guard let url = url else { return }
         guard let imageUrl = URL(string: url) else { return }
