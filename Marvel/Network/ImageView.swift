@@ -6,21 +6,21 @@
 //  Copyright © 2019 AntonKuznetsov. All rights reserved.
 //
 
-import Foundation
 import UIKit
-import Alamofire
 
+// используем вместо UIImageView наследника ImageView, чтобы подгружать изображение по ссылке URL, которую предоставляет Marvel при запросе списка героев
 class ImageView: UIImageView {
     
     // MARK: - Private Methods
     
+    // сохраняем изображение в кэше
     private func cacheImage(data: Data, response: URLResponse) {
         guard let responseURL = response.url else { return }
         let cachedResponse = CachedURLResponse(response: response, data: data)
         URLCache.shared.storeCachedResponse(cachedResponse, for: URLRequest(url: responseURL))
-        
     }
     
+    // получаем изображение из кэша
     private func getCachedImage(url: URL) -> UIImage? {
         if let cacheResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
             return UIImage(data: cacheResponse.data)
@@ -53,6 +53,4 @@ class ImageView: UIImageView {
             
         }.resume()
     }
-    
-    
 }

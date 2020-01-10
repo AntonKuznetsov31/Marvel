@@ -21,6 +21,8 @@ struct NetworkManager {
     
     // MARK: - Public Methods
     
+    // метод отправляет запрос Marvel, используя public/private ключи, время в секундах с 1970 и хэш функцию, согласно требованиям Marvel
+    // в качестве результата получаем список персонажей
     static func fetchCharacters(completion: @escaping ([Character]) -> ()) {
         
         let ts = NSDate().timeIntervalSince1970.description
