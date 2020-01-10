@@ -8,12 +8,13 @@
 
 import UIKit
 
-// используем вместо UIImageView наследника ImageView, чтобы подгружать изображение по ссылке URL, которую предоставляет Marvel при запросе списка героев
+// используем вместо UIImageView наследника ImageView, чтобы подгружать изображение по ссылке URL, которую предоставляет Marvel при запросе списка персонажей
+// при работе с изображениями пользуемся кэшированием, чтобы картинки подгружались правильно при быстром скроллинге
 class ImageView: UIImageView {
     
     // MARK: - Private Methods
     
-    // сохраняем изображение в кэше
+    // кэшируем изображение
     private func cacheImage(data: Data, response: URLResponse) {
         guard let responseURL = response.url else { return }
         let cachedResponse = CachedURLResponse(response: response, data: data)
