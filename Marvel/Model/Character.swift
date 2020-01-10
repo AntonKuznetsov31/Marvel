@@ -38,4 +38,3 @@ struct Character: Decodable {
         return results.compactMap { Character(charactersDictionary: $0) }
     }
 }
-
