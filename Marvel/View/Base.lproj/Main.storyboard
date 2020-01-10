@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6cu-Qj-O67">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Characters Collection View Controller-->
+        <scene sceneID="EMM-i1-p1e">
+            <objects>
+                <collectionViewController id="6cu-Qj-O67" customClass="CharactersCollectionViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ftL-Mo-syF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="gAR-LO-F82">
+                            <size key="itemSize" width="160" height="200"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="characterCell" id="39G-ek-pFZ" customClass="CharacterCollectionViewCell" customModule="Marvel" customModuleProvider="target">
+                                <rect key="frame" x="10" y="0.0" width="160" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Apr-8Q-9gy">
+                                            <rect key="frame" x="15" y="158.66666666666666" width="130" height="26.333333333333343"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kej-V7-IjX" customClass="ImageView" customModule="Marvel" customModuleProvider="target">
+                                            <rect key="frame" x="7" y="7" width="146" height="144.66666666666666"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="kej-V7-IjX" firstAttribute="leading" secondItem="39G-ek-pFZ" secondAttribute="leading" constant="7" id="8hp-ID-bhY"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Apr-8Q-9gy" secondAttribute="bottom" constant="7" id="A3e-2d-wIe"/>
+                                    <constraint firstAttribute="trailing" secondItem="kej-V7-IjX" secondAttribute="trailing" constant="7" id="CEr-IG-ZQK"/>
+                                    <constraint firstItem="Apr-8Q-9gy" firstAttribute="leading" secondItem="39G-ek-pFZ" secondAttribute="leadingMargin" constant="7" id="Dmz-JK-k2E"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Apr-8Q-9gy" secondAttribute="trailing" constant="7" id="Jnd-Bw-FDo"/>
+                                    <constraint firstItem="Apr-8Q-9gy" firstAttribute="top" secondItem="kej-V7-IjX" secondAttribute="bottom" constant="7" id="pA7-8u-4Ra"/>
+                                    <constraint firstItem="kej-V7-IjX" firstAttribute="top" secondItem="39G-ek-pFZ" secondAttribute="top" constant="7" id="q66-6m-Nsf"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="characterImage" destination="kej-V7-IjX" id="dNb-Ct-HQI"/>
+                                    <outlet property="characterName" destination="Apr-8Q-9gy" id="oHY-HQ-cxp"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="6cu-Qj-O67" id="Wlh-ew-RSm"/>
+                            <outlet property="delegate" destination="6cu-Qj-O67" id="hZp-9P-ptm"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hWm-Ak-VNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1329" y="-25"/>
+        </scene>
+    </scenes>
+</document>
