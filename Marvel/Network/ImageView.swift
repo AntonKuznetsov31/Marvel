@@ -12,6 +12,24 @@ import Alamofire
 
 class ImageView: UIImageView {
     
+    // MARK: - Private Methods
+    
+    private func cacheImage(data: Data, response: URLResponse) {
+        guard let responseURL = response.url else { return }
+        let cachedResponse = CachedURLResponse(response: response, data: data)
+        URLCache.shared.storeCachedResponse(cachedResponse, for: URLRequest(url: responseURL))
+        
+    }
+    
+    private func getCachedImage(url: URL) -> UIImage? {
+        if let cacheResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
+            return UIImage(data: cacheResponse.data)
+        }
+        return nil
+    }
+    
+    // MARK: - Public Methods
+    
     func fetchImage(with url: String?) {
         guard let url = url else { return }
         guard let imageUrl = URL(string: url) else { return }
@@ -36,17 +54,5 @@ class ImageView: UIImageView {
         }.resume()
     }
     
-    private func cacheImage(data: Data, response: URLResponse) {
-        guard let responseURL = response.url else { return }
-        let cachedResponse = CachedURLResponse(response: response, data: data)
-        URLCache.shared.storeCachedResponse(cachedResponse, for: URLRequest(url: responseURL))
-        
-    }
     
-    private func getCachedImage(url: URL) -> UIImage? {
-        if let cacheResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
-            return UIImage(data: cacheResponse.data)
-        }
-        return nil
-    }
 }

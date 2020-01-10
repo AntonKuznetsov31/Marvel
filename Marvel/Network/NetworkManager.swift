@@ -13,9 +13,13 @@ import typealias CommonCrypto.CC_LONG
 
 struct NetworkManager {
     
+    // MARK: - Private Properties
+    
     private static let url = "http://gateway.marvel.com:80/v1/public/characters"
     private static let publicKey = "9a7830b428e8cfe7efc8f3819533f4e7"
     private static let privateKey = "75bf35f092ac9ff14262a6e12fb57c89f1ffdd7b"
+    
+    // MARK: - Public Methods
     
     static func fetchCharacters(completion: @escaping ([Character]) -> ()) {
         

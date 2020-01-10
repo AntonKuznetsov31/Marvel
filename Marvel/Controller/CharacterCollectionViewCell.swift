@@ -10,8 +10,12 @@ import UIKit
 
 class CharacterCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var characterImage: ImageView!
     @IBOutlet weak var characterName: UILabel!
+    
+    // MARK: - Public Methods
     
     func configure(with character: Character) {
         characterName.text = character.name

@@ -11,12 +11,19 @@ import Alamofire
 
 struct Character: Decodable {
     
-    let id: Int?
+    // MARK: - Private Properties
+    
+    private let id: Int?
+    private let description: String?
+    
+    // MARK: - Public Properties
+    
     let name: String?
-    let description: String?
     var thumbnail: String?
     
-    init(charactersDictionary: [String: Any]) {
+    // MARK: - Private Methods
+    
+    private init(charactersDictionary: [String: Any]) {
         id = charactersDictionary["id"] as? Int
         name = charactersDictionary["name"] as? String
         description = charactersDictionary["description"] as? String
@@ -25,6 +32,8 @@ struct Character: Decodable {
             let ext = dict["extension"] else { return }
         thumbnail = "\(path).\(ext)"
     }
+    
+    // MARK: - Public Methods
     
     static func getCharacters(from jsonData: Any) -> [Character]? {
         guard let json = jsonData as? [String: Any] else { return nil }
